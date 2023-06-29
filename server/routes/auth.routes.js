@@ -6,6 +6,7 @@ export default function AuthRoutes(app) {
   router.post('/signup', auth.signup);
   router.post('/login', auth.login);
   router.get('/user/:id', auth.findUser);
+  router.get('/users', auth.findAllUsers);
 
   app.use('/api/auth', router);
 }

@@ -104,3 +104,13 @@ export function fetchUserByToken(req) {
   });
 }
 
+export function findAllUsers(_req, res) {
+  // TODO admin access control
+  User.find()
+    .then(users => res.json(users.map(user => ({id: user._id, email: user.email, name: user.name}))))
+    .catch(err => {
+      res.status(404).json({ message: `Failed to load users!` });
+      console.error(err);
+    });
+}
+
