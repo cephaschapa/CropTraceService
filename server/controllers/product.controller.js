@@ -1,7 +1,6 @@
 import { Product } from '../models/product.model.js';
 
 export function create(req, res) {
-  console.log(JSON.stringify(req.body))
   if (!req.body.name) {
     res.status(400).send({ message: 'name cannot be empty!' });
     return;
