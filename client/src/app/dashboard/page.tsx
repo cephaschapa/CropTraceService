@@ -1,33 +1,11 @@
 'use client'
 import React from "react"
-import {MdRedeem, MdDashboard, MdSupervisedUserCircle} from 'react-icons/md'
+import Sidebar from "@/components/Sidebar"
 
 export default function Dashboard () {
     return(
         <div className="flex">
-            <header className="w-[300px] bg-[#16a085] h-[100vh] p-4">
-                <div>
-                    <div className="h-16 w-16 bg-white rounded-full mb-4"/>
-                    <div className="mb-4 text-white">admin@mail.com</div>
-                    <hr />
-                </div>
-                <div>
-                    <ul className="py-10 flex flex-col space-y-3">
-                        <li className="text-white flex items-center text-2xl space-x-3 cursor-pointer">
-                            <MdRedeem size={24}/>
-                            <span>Products</span>
-                        </li>
-                        <li className="text-white flex items-center text-2xl space-x-3 cursor-pointer">
-                            <MdDashboard size={24}/>
-                            <span>Stats</span>
-                        </li>
-                        <li className="text-white flex items-center text-2xl space-x-3 cursor-pointer">
-                            <MdSupervisedUserCircle size={24}/>
-                            <span>Users</span>
-                        </li>
-                    </ul>
-                </div>
-            </header>
+            <Sidebar selectedPage="Products" userEmail="admin@test.example"/>
             <main className="w-full">
                 <header className="px-4 h-16 flex items-center border-b border-neutral-500 w-full">
                     <p className="text-3xl">Products</p>
