@@ -122,7 +122,7 @@ export async function update(req, res) {
     return res.status(404).send({
       message: `Failed to update product with id ${id}. Might not exist`,
     });
-  } else if (!product.user.equals(user._id)) {
+  } else if (!product.user || !product.user.equals(user._id)) {
     return res.status(401).send({
       message: `You don't own this product, unable to edit!`,
     });
@@ -164,7 +164,7 @@ export async function remove(req, res) {
     return res.status(404).send({
       message: `Failed to update product with id ${id}. Might not exist`,
     });
-  } else if (!product.user.equals(user._id)) {
+  } else if (!product.user || !product.user.equals(user._id)) {
     return res.status(401).send({
       message: `You don't own this product, unable to delete!`,
     });
@@ -208,7 +208,7 @@ export async function addSensorData(req, res) {
     return res.status(404).send({
       message: `Failed to add sensor data for product with id ${id}. Might not exist`,
     });
-  } else if (!product.user.equals(user._id)) {
+  } else if (!product.user || !product.user.equals(user._id)) {
     return res.status(401).send({
       message: `You don't own this product, unable to add sensor data!`,
     });
