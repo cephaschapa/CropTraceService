@@ -1,9 +1,9 @@
 import './globals.css'
-import { Inter, Quicksand  } from 'next/font/google'
+import { Inter, Montserrat  } from 'next/font/google'
 
 const inter = Inter({ subsets: ['latin'] })
 
-const quicksand = Quicksand({
+const montserrat = Montserrat({
   weight: ['400' , '500'],
   subsets: ['latin']
 })
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={quicksand.className}>{children}</body>
+      <body className={montserrat.className}>{children}</body>
     </html>
   )
 }
