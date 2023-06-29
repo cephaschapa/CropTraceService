@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import {MdRedeem, MdDashboard, MdSupervisedUserCircle} from 'react-icons/md';
 
@@ -18,16 +19,22 @@ export default function Sidebar(props: SidebarProps) {
             <div>
                 <ul className="py-10 flex flex-col space-y-3">
                     <li className="text-white flex items-center text-2xl space-x-3 cursor-pointer">
-                        <MdRedeem size={24} color={selectedPage === 'Products' ? '#FFF' : '#94A3B8'} />
-                        <span className={selectedPage === 'Products' ? 'text-white' : 'text-slate-400'}>Products</span>
+                        <Link href="/dashboard">
+                            <MdRedeem size={24} color={selectedPage === 'Products' ? '#FFF' : '#94A3B8'} />
+                            <span className={selectedPage === 'Products' ? 'text-white' : 'text-slate-400'}>Products</span>
+                        </Link>
                     </li>
                     <li className="text-white flex items-center text-2xl space-x-3 cursor-pointer">
-                        <MdDashboard size={24} color={selectedPage === 'Stats' ? '#FFF' : '#94A3B8'} />
-                        <span className={selectedPage === 'Stats' ? 'text-white' : 'text-slate-400'}>Stats</span>
+                        <Link href="/dashboard/stats">
+                            <MdDashboard size={24} color={selectedPage === 'Stats' ? '#FFF' : '#94A3B8'} />
+                            <span className={selectedPage === 'Stats' ? 'text-white' : 'text-slate-400'}>Stats</span>
+                        </Link>
                     </li>
                     <li className="text-white flex items-center text-2xl space-x-3 cursor-pointer">
-                        <MdSupervisedUserCircle size={24} color={selectedPage === 'Users' ? '#FFF' : '#94A3B8'} />
-                        <span className={selectedPage === 'Users' ? 'text-white' : 'text-slate-400'}>Users</span>
+                        <Link href="/dashboard/users">
+                            <MdSupervisedUserCircle size={24} color={selectedPage === 'Users' ? '#FFF' : '#94A3B8'} />
+                            <span className={selectedPage === 'Users' ? 'text-white' : 'text-slate-400'}>Users</span>
+                        </Link>
                     </li>
                 </ul>
             </div>
