@@ -8,6 +8,10 @@ const productSchema = new mongoose.Schema({
   destination: String,
   isCertified: Boolean,
   storageSensorData: [],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+  },
 }, {
   timestamps: true
 });
