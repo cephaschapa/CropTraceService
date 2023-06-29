@@ -17,7 +17,7 @@ export default function Dashboard () {
                     <thead className="border h-16 bg-slate-200 text-left">
                         <th>Batch Number</th>
                         <th>Name</th>
-                        <td>Farm Name</td>
+                        <th>Farm Name</th>
                         <th>Farm Location</th>
                         <th>Destination</th>
                         <th>Certification</th>
