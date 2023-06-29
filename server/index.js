@@ -4,6 +4,7 @@ import mongoose from 'mongoose';
 
 import ProductRoutes from './routes/product.routes.js';
 import AuthRoutes from './routes/auth.routes.js';
+import StatsRoutes from './routes/stats.routes.js';
 
 const app = express();
 const PORT = 3001;
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: true }));
 
 ProductRoutes(app);
 AuthRoutes(app);
+StatsRoutes(app);
 
 async function main() {
   await mongoose.connect(DB_URI, {
