@@ -3,6 +3,7 @@ import cors from 'cors';
 import mongoose from 'mongoose';
 
 import ProductRoutes from './routes/product.routes.js';
+import AuthRoutes from './routes/auth.routes.js';
 
 const app = express();
 const PORT = 3001;
@@ -17,6 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 ProductRoutes(app);
+AuthRoutes(app);
 
 async function main() {
   await mongoose.connect(DB_URI, {
