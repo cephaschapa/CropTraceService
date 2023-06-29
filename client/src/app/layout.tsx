@@ -12,10 +12,12 @@ const montserrat = Montserrat({
   subsets: ['latin']
 })
 
+/*
 export const metadata = {
   title: 'CropTrace',
   description: 'Know more about you local products',
 }
+*/
 
 export default function RootLayout({
   children,
