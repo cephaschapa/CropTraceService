@@ -1,3 +1,7 @@
+'use client';
+
+import { SessionProvider } from "next-auth/react"
+
 import './globals.css'
 import { Inter, Montserrat  } from 'next/font/google'
 
@@ -19,8 +23,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className={montserrat.className}>{children}</body>
-    </html>
+    <SessionProvider>
+      <html lang="en">
+        <body className={montserrat.className}>{children}</body>
+      </html>
+    </SessionProvider>
   )
 }
