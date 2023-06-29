@@ -53,7 +53,7 @@ export function findAllCertified(_req, res) {
 }
 
 export function findOne(req, res) {
-  if (!req.body.id) {
+  if (!req.params.id) {
     res.status(400).send({ message: 'id cannot be empty!' });
     return;
   }
@@ -100,7 +100,7 @@ export function update(req, res) {
 }
 
 export function remove(req, res) {
-  if (!req.body.id) {
+  if (!req.params.id) {
     res.status(400).send({ message: 'id cannot be empty!' });
     return;
   }
