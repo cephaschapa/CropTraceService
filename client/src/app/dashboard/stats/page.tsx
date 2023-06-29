@@ -20,7 +20,7 @@ export default function StatsPage() {
         <div className="flex">
             <Sidebar selectedPage="Stats" userEmail="admin@test.example" />
             <main className="w-full p-8">
-                <header className="h-16 flex items-center w-full mb-[50px]">
+                <header className="h-16 flex items-center w-full mb-[48px] mt-[84px]">
                     <FaChartBar size={64} color="#16A34A" className="inline mr-8" />
                     <p className="text-3xl font-bold">Dashboard</p>
                 </header>
