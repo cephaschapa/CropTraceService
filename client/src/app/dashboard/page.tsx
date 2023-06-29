@@ -38,7 +38,7 @@ export default function Dashboard () {
                             <td>12/12/23</td>
                             <td>12/12/23</td>
                             <td className="flex space-x-4 py-5">
-                                <button className="h-10 w-32 bg-yellow-600 text-white rounded-full">Update</button>
+                                <button className="h-10 w-32 bg-yellow-600 text-white rounded-full">Delete</button>
                                 <button className="h-10 w-32 bg-green-600 text-white rounded-full">Update</button>
                             </td>
                        </tr>
