@@ -53,6 +53,23 @@ export function findAll(req, res) {
     });
 }
 
+export async function findAllByUser(req, res) {
+  let user;
+  try {
+    user = await fetchUserByToken(req);
+  } catch(err) {
+    return res.status(401).send({ message: 'User not authenticated! ' + err });
+  }
+
+  Product.find({ user: user._id })
+    .then(data => res.send(data))
+    .catch(err => {
+      res.status(500).send({
+        message: err.message || 'Failed to retrieve user\'s products.',
+      });
+    });
+}
+
 export function findAllCertified(_req, res) {
   Product.find({ isCertified: true })
     .then(data => res.send(data))

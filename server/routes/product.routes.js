@@ -6,6 +6,7 @@ export default function ProductRoutes(app) {
   router.post('/', products.create);
   router.get('/', products.findAll);
   router.get('/certified', products.findAllCertified);
+  router.get('/user', products.findAllByUser);
   router.get('/:id', products.findOne);
   router.put('/:id', products.update);
   router.delete('/:id', products.remove);
