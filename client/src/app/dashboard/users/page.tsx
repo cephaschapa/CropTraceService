@@ -1,17 +1,18 @@
 'use client'
 import React, { useEffect, useState } from "react"
 import { API_URL } from "../../../../config";
-import { FaBolt, FaCartShopping, FaUserGroup, FaChartBar } from "react-icons/fa6";
+import { FaUserGroup } from "react-icons/fa6";
 import Sidebar from "@/components/Sidebar"
+import Link from "next/link";
 
 export default function StatsPage() {
-    const [stats, setStats] = useState({ userCount: 0, productCount: 0, farmCount: 0 });
+    const [users, setUsers] = useState<any[]>([]);
 
     useEffect(() => {
         async function fetchData() {
-            const response = await fetch(API_URL + 'stats');
+            const response = await fetch(API_URL + 'auth/users');
             const data = await response.json();
-            setStats(data);
+            setUsers(data);
         }
         fetchData();
     }, []);
@@ -24,6 +25,14 @@ export default function StatsPage() {
                     <FaUserGroup size={64} color="#16A34A" className="inline mr-8" />
                     <p className="text-3xl font-bold">Users</p>
                 </header>
+                <ul className="space-y-4">
+                    {users.map(user => (
+                        <li className="p-4 drop-shadow-lg bg-white rounded-md flex justify-between items-center">
+                            <Link href={`/dashboard/users/${user.id}`}>{user.name || 'Anonymous'} ({user.email})</Link>
+                            <button className="bg-red-500 text-white rounded-sm p-1">Delete</button>
+                        </li>
+                    ))}
+                </ul>
             </main>
         </div>
     )
