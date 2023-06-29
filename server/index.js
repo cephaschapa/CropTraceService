@@ -11,10 +11,10 @@ const PORT = 3001;
 // use 'mongodb://user:password@127.0.0.1:27017/greenupp' if you have auth enabled
 const DB_URI = 'mongodb://127.0.0.1:27017/greenupp';
 const CORS_OPTIONS = {
-  origin: `http://localhost:${PORT}`,
+  origin: `http://localhost:3000`,
 };
 
-app.use(cors(CORS_OPTIONS));
+app.use(cors()); // CORS_OPTIONS
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
