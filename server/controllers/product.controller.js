@@ -143,7 +143,7 @@ export async function update(req, res) {
         message: `Failed to update product with id ${id}.`,
       });
       console.error(err);
-    })
+    });
 }
 
 export async function remove(req, res) {
@@ -182,6 +182,60 @@ export async function remove(req, res) {
           message: 'Product was deleted successfully!',
         });
       }
+    });
+}
+
+export async function addSensorData(req, res) {
+  let user;
+  try {
+    user = await fetchUserByToken(req);
+  } catch(err) {
+    return res.status(401).send({ message: 'User not authenticated! ' + err });
+  }
+
+  if (!req.params.id) {
+    res.status(400).send({ message: 'id cannot be empty!' });
+    return;
+  }
+
+  if (!req.body) {
+    res.status(400).send({ message: 'Sensor data has to be provided in request body' });
+    return;
+  }
+
+  const product = await Product.findById(req.params.id);
+  if (!product) {
+    return res.status(404).send({
+      message: `Failed to add sensor data for product with id ${id}. Might not exist`,
+    });
+  } else if (!product.user.equals(user._id)) {
+    return res.status(401).send({
+      message: `You don't own this product, unable to add sensor data!`,
+    });
+  }
+
+  const sensorData = req.body;
+  sensorData.date = new Date();
+  if (!product.storageSensorData) {
+    product.storageSensorData = [];
+  }
+  product.storageSensorData.push(sensorData);
+
+  Product.findByIdAndUpdate(req.params.id, product, { useFindAndModify: false })
+    .then(data => {
+      if (!data) {
+        res.status(404).send({
+          message: `Failed to add sensor data to product with id ${id}. Might not exist`,
+        });
+      } else {
+        res.send({ message: 'Sensor data added to product successfully.' });
+      }
+    })
+    .catch(err => {
+      res.status(500).send({
+        message: `Failed to add sensor data to product with id ${id}.`,
+      });
+      console.error(err);
     });
 }
 
