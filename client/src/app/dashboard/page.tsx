@@ -1,19 +1,21 @@
 'use client'
 import React from "react"
 import Sidebar from "@/components/Sidebar"
+import { MdRedeem } from "react-icons/md"
 
 export default function Dashboard () {
     return(
         <div className="flex">
             <Sidebar selectedPage="Products" userEmail="admin@test.example"/>
-            <main className="w-full">
-                <header className="px-4 h-16 flex items-center border-b border-neutral-500 w-full">
-                    <p className="text-3xl">Products</p>
+            <main className="w-full p-8">
+                <header className="h-16 flex items-center w-full mb-[48px] mt-[84px]">
+                    <MdRedeem size={64} color="#16A34A" className="inline mr-8" />
+                    <p className="text-3xl font-bold">Products</p>
                 </header>
-                <div className="p-4">
+                <div className="py-4">
                     <button className="bg-[#16a085] h-10 w-32 text-white rounded-full">Add product</button>
                 </div>
-                <table className="w-full ml-4">
+                <table className="w-full">
                     <thead className="border h-16 bg-slate-200 text-left">
                         <th>Batch Number</th>
                         <th>Name</th>
